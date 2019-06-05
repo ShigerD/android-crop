@@ -1,17 +1,25 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        // in the individual module build.gradle files
     }
 }
 
 allprojects {
-    group = 'com.soundcloud.android'
-    version = project.VERSION
-
     repositories {
-        mavenCentral()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+        maven { url "https://raw.githubusercontent.com/Pgyer/mvn_repo_pgyer/master" }
+        google()
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
